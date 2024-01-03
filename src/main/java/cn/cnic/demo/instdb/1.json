@@ -1,0 +1,97 @@
+{
+  "flow" : {
+    "executorNumber" : "1",
+    "driverMemory" : "1g",
+    "executorMemory" : "1g",
+    "executorCores" : "1",
+    "paths" : [ {
+      "inport" : "",
+      "from" : "ReadFaird",
+      "to" : "AddUUIDStop",
+      "outport" : ""
+    }, {
+      "inport" : "",
+      "from" : "AddUUIDStop",
+      "to" : "ProvinceClean",
+      "outport" : ""
+    }, {
+      "inport" : "",
+      "from" : "Join",
+      "to" : "ShowData",
+      "outport" : ""
+    }, {
+      "inport" : "Right",
+      "from" : "ReadFaird-1704032732234-1704032732234",
+      "to" : "Join",
+      "outport" : ""
+    }, {
+      "inport" : "Left",
+      "from" : "ProvinceClean",
+      "to" : "Join",
+      "outport" : ""
+    } ],
+    "name" : "0",
+    "stops" : [ {
+      "customizedProperties" : { },
+      "dataCenter" : "",
+      "name" : "ShowData",
+      "uuid" : "6eef362dab4e449e8cc355fa5bf7fa5e",
+      "bundle" : "cn.piflow.bundle.external.ShowData",
+      "properties" : {
+        "showNumber" : "10"
+      }
+    }, {
+      "customizedProperties" : { },
+      "dataCenter" : "",
+      "name" : "ReadFaird",
+      "uuid" : "7247671ac15e476bb8ba7c4876ba7f68",
+      "bundle" : "cn.piflow.bundle.faird.ReadFaird",
+      "properties" : {
+        "serviceIp" : "10.0.82.71",
+        "dataframeId" : "eb19fa6e9633451fb1e4c9e707f9241f",
+        "servicePort" : "3101"
+      }
+    }, {
+      "customizedProperties" : { },
+      "dataCenter" : "",
+      "name" : "AddUUIDStop",
+      "uuid" : "d047c23d10f8416da3d60d6c20719a1e",
+      "bundle" : "cn.piflow.bundle.common.AddUUIDStop",
+      "properties" : {
+        "column" : "uuid"
+      }
+    }, {
+      "customizedProperties" : { },
+      "dataCenter" : "",
+      "name" : "Join",
+      "uuid" : "c30013bd819f4ca28c6d4310fac3820a",
+      "bundle" : "cn.piflow.bundle.common.Join",
+      "properties" : {
+        "joinMode" : "inner",
+        "correlationColumn" : "_id"
+      }
+    }, {
+      "customizedProperties" : { },
+      "dataCenter" : "",
+      "name" : "ProvinceClean",
+      "uuid" : "8cb90702d06f42378477942b626685d1",
+      "bundle" : "cn.piflow.bundle.clean.ProvinceClean",
+      "properties" : {
+        "columnName" : "province"
+      }
+    }, {
+      "customizedProperties" : { },
+      "dataCenter" : "",
+      "name" : "ReadFaird-1704032732234-1704032732234",
+      "uuid" : "3ed1b0294aa54f87858d92bf3370f20a",
+      "bundle" : "cn.piflow.bundle.faird.ReadFaird",
+      "properties" : {
+        "serviceIp" : "10.0.82.71",
+        "dataframeId" : "76a814a707544c868cfeba211e9fca6a",
+        "servicePort" : "3101"
+      }
+    } ],
+    "uuid" : "6de19e3517624a8d8be274e11ecb197c"
+  }
+}
+
